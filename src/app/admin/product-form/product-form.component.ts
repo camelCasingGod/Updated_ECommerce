@@ -11,12 +11,7 @@ import 'rxjs/add/operator/take';
 })
 export class ProductFormComponent implements OnInit {
   categories$;
-  product = {
-    title: null,
-    price: null,
-    category: null,
-    imageUrl: null
-  };
+  product;
   id;
 
   constructor(
