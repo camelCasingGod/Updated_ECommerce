@@ -3,6 +3,7 @@ import { CategoryService } from 'src/app/category.service';
 import { ProductService } from 'src/app/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/take';
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'app-product-form',
@@ -11,7 +12,12 @@ import 'rxjs/add/operator/take';
 })
 export class ProductFormComponent implements OnInit {
   categories$;
-  product;
+  product = {
+    title: "New Product",
+    price: 0.00,
+    category: "",
+    imageUrl: ""
+  };
   id;
 
   constructor(
