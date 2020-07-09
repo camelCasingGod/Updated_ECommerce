@@ -29,6 +29,7 @@ import { CategoryService } from './category.service';
 import { FormsModule } from '@angular/forms';
 import { ProductService } from './product.service';
 import { CustomFormsModule } from 'ngx-custom-validators';
+import { DataTableModule } from 'angular7-data-table';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,7 @@ import { CustomFormsModule } from 'ngx-custom-validators';
     AppRoutingModule,
     FormsModule,
     CustomFormsModule,
-
+    DataTableModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
