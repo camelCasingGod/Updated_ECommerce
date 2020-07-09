@@ -16,7 +16,7 @@ export class ProductFormComponent implements OnInit {
     title: "New Product",
     price: 0.00,
     category: "",
-    imageUrl: ""
+    imageUrl: "https://thumbs.dreamstime.com/b/new-product-stamp-round-grunge-sign-label-181923461.jpg"
   };
   id;
 
