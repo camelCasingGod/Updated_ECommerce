@@ -1,4 +1,6 @@
 
 .sticky-top {
     top: 30px;
+    position: sticky;
+    z-index: 85;
 }
