@@ -11,14 +11,8 @@ export class CategoryService {
 
   getAll() {
     return this.db
-        .list('/categories', (ref) => ref.orderByChild('name'))
-        .snapshotChanges()
-        .pipe(
-          map((actions) => {
-            return actions.map((action) => ({
-                key: action.key,
-                val: action.payload.val(),
-            }));
-          }));
+      .list('categories', reference => reference.orderByChild('name'))
+      .snapshotChanges()
+      .pipe(map(metadata => metadata.map(data => ({ key: data.payload.key, val: data.payload.val() }))));
   }
 }
