@@ -48,4 +48,13 @@ export class ShoppingCartService {
     
   }
 
+  async removeFromCart(product: Product) {
+    let cartId = await this.getOrCreateCartId();
+    let item$ = this.getItem(cartId, product.key);
+
+    item$.valueChanges().pipe(take(1)).subscribe((item: any) => {
+      item$.update({ quantity: item.quantity - 1 });
+    });
+  }
+
 }
