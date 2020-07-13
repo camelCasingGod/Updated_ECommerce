@@ -26,6 +26,7 @@ export class ProductCardComponent {
     if (!this.shoppingCart) return 0;
     
     let item = this.shoppingCart.itemsMap[this.product.key];
+    console.log(this.shoppingCart.itemsMap);
     return item ? item.quantity : 0;
   }
 }
