@@ -1,7 +1,7 @@
 <h1>Shopping Cart</h1>
 <div class="row col-10" *ngIf="cart$ | async as cart">
   <p>
-    You have {{ cart.totalItemsCount }} items in your shopping cart.
+    <number-items [itemCount]="cart.totalItemsCount"></number-items>
     <button
     *ngIf="cart.items.length"
     (click)="clearCart()"
