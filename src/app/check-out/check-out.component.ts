@@ -9,7 +9,7 @@ import { Order } from '../models/order';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-check-out',
+  selector: 'check-out',
   templateUrl: './check-out.component.html',
   styleUrls: ['./check-out.component.css']
 })
