@@ -19,6 +19,10 @@ export class OrderService {
 
   }
 
+  async placeKey(key) {
+    await this.db.list('/orders/' + key).set("spId", key);
+  }
+
   getOrders() {
     return this.db.list('/orders').valueChanges();
   }
