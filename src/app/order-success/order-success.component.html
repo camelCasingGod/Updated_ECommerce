@@ -1,8 +1,7 @@
 
 <div class="card">
-    <img class="card-img-top" src="" alt="">
-    <div class="card-body">
-        <h4 class="card-title">Order Summary</h4>
+    <div class="card-body" *ngIf="shippingDetails | async as shippingDetails">
+        <h4 class="card-title">Order Summary for {{ shippingDetails[3] }}</h4>
         <ul class="list-group list-group-flush">
             <li *ngFor="let item of items | async" class="list-group-item">
                 {{ item.quantity }} x {{ item.product.title }}
@@ -13,3 +12,5 @@
         </ul>
     </div>
 </div>
+
+<footer class="blockquote-footer" *ngIf="cart | async as shoppingCart">Order placed on {{ shoppingCart[0] | date: 'fullDate' }}.</footer>

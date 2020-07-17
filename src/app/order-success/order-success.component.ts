@@ -1,17 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-order-success',
   templateUrl: './order-success.component.html',
   styleUrls: ['./order-success.component.css']
 })
-export class OrderSuccessComponent {
+export class OrderSuccessComponent implements OnInit {
 
   shoppingCartId: string;
-  items;
-  shippingDetails;
+    shippingDetails;
+    items;
+    cart;
 
   constructor(
     private router: Router,
@@ -19,7 +21,14 @@ export class OrderSuccessComponent {
     private db: AngularFireDatabase) {
 
     this.shoppingCartId = this.route.snapshot.paramMap.get('id');
-    this.items = this.db.list('/orders/' + this.shoppingCartId + '/items').valueChanges();
+
+  }
+
+  async ngOnInit() {
+
+    this.cart = await this.db.list('/orders/' + this.shoppingCartId).valueChanges();
+    this.shippingDetails = await this.db.list('/orders/' + this.shoppingCartId + '/shipping').valueChanges();
+    this.items = await this.db.list('/orders/' + this.shoppingCartId + '/items').valueChanges();
 
   }
 
