@@ -31,4 +31,8 @@ export class OrderService {
     return this.db.list('/orders', ref => ref.orderByChild('userId').equalTo(userId)).valueChanges();
   }
 
+  deleteOrder(orderId: string) {
+    this.db.object('/orders/' + orderId).remove();
+  }
+
 }

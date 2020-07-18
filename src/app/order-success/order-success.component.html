@@ -14,3 +14,11 @@
 </div>
 
 <footer class="blockquote-footer" *ngIf="cart | async as shoppingCart">Order placed on {{ shoppingCart[0] | date: 'fullDate' }}.</footer>
+<br><br>
+<div *ngIf="user | async as addie">
+    <a
+    type="button"
+    class="btn btn-danger text-white"
+    *ngIf="addie.isAdmin"
+    (click)="clearOrder()">Delete Order</a>
+</div>
